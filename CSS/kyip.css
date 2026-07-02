@@ -1,0 +1,129 @@
+.kyip-hero {
+    padding: 3rem 0 1rem;
+    background: var(--color-ivory);
+    text-align: center;
+}
+
+.kyip-hero h1 {
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: var(--color-gold);
+}
+
+.kyip-sub {
+    color: var(--color-warm-grey);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.kyip-form-section {
+    padding: 2rem 0 4rem;
+    background: #fff;
+}
+
+.kyip-form {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--color-ivory);
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-step h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid var(--color-sand);
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.form-group label:hover {
+    border-color: var(--color-gold);
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"] {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-sand);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.step-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.kyip-results {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.result-profile {
+    font-size: 2rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--color-gold);
+    margin: 0.5rem 0;
+}
+
+.result-disclaimer {
+    font-size: 0.85rem;
+    color: var(--color-warm-grey);
+    background: rgba(176,141,87,0.08);
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}

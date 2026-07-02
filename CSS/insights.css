@@ -1,0 +1,112 @@
+.insights-hero {
+    padding: 3rem 0 1rem;
+    background: var(--color-ivory);
+    text-align: center;
+}
+
+.insights-hero h1 {
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: var(--color-gold);
+}
+
+.insights-sub {
+    color: var(--color-warm-grey);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.insights-grid-section {
+    padding: 2rem 0 3rem;
+    background: #fff;
+}
+
+.insights-articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.insight-card-full {
+    background: var(--color-ivory);
+    padding: 1.8rem;
+    border-radius: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.insight-card-full:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.insight-card-full .insight-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold);
+    background: rgba(176,141,87,0.1);
+    padding: 0.2rem 0.8rem;
+    border-radius: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.insight-card-full h2 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.insight-card-full h2 a {
+    color: var(--color-navy);
+    transition: color 0.2s;
+}
+
+.insight-card-full h2 a:hover {
+    color: var(--color-gold);
+}
+
+.insight-card-full p {
+    color: var(--color-warm-grey);
+    margin-bottom: 0.8rem;
+}
+
+.insight-link {
+    font-weight: 500;
+    color: var(--color-gold);
+}
+
+.insight-link:hover {
+    text-decoration: underline;
+}
+
+.insights-cta-banner {
+    background: var(--color-navy);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.insights-cta-banner h2 {
+    color: #fff;
+    font-family: var(--font-serif);
+}
+
+.insights-cta-banner p {
+    opacity: 0.7;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.insights-cta-banner .btn-primary {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+@media (min-width: 768px) {
+    .insights-articles-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

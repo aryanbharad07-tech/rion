@@ -1,0 +1,24 @@
+.legal-page {
+    padding: 4rem 0;
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-page h1 {
+    font-family: var(--font-serif);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-gold);
+    padding-bottom: 0.5rem;
+}
+
+.legal-page p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+}
+
+.legal-page a {
+    color: var(--color-gold);
+    text-decoration: underline;
+}

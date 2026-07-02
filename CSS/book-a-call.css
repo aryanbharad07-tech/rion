@@ -1,0 +1,49 @@
+.booking-hero {
+    padding: 3rem 0 1rem;
+    text-align: center;
+    background: var(--color-ivory);
+}
+
+.booking-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.booking-sub {
+    color: var(--color-warm-grey);
+    max-width: 500px;
+    margin: 0.5rem auto 0;
+}
+
+.booking-widget {
+    padding: 3rem 0 4rem;
+    background: #fff;
+}
+
+.cal-embed {
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+}
+
+.booking-expect {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--color-ivory);
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.booking-expect h3 {
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+}
+
+.booking-expect ul {
+    list-style: none;
+    padding: 0;
+}
+
+.booking-expect ul li {
+    font-size: 1rem;
+    padding: 0.4rem 0;
+    color: var(--color-charcoal);
+}

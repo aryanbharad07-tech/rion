@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights — RION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* ==============================================================
+           INSIGHTS HUB — same theme as services page
+        ============================================================== */
+
+        /* --- Subtle background for the insights section --- */
+        .insights-grid-section {
+            padding: 3rem 0 4rem;
+            background: var(--color-bg-alt);
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .insights-grid-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(184, 150, 58, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(184, 150, 58, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(184, 150, 58, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .insights-grid-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Glassmorphism cards (matching services page) --- */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .article-card {
+            background: rgba(30, 30, 30, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2rem 1.8rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .article-card:hover::before {
+            opacity: 1;
+        }
+
+        .article-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .article-card:hover::after {
+            opacity: 0.8;
+        }
+
+        .article-card:hover {
+            border-color: rgba(184, 150, 58, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(184, 150, 58, 0.1);
+            background: rgba(30, 30, 30, 0.7);
+        }
+
+        .article-card .insight-tag {
+            display: inline-block;
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-accent);
+            background: var(--color-accent-dim);
+            padding: 0.15rem 0.7rem;
+            border-radius: 40px;
+            margin-bottom: 0.6rem;
+            border: 1px solid rgba(184, 150, 58, 0.08);
+            align-self: flex-start;
+        }
+
+        .article-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--color-text-primary);
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .article-card h3 a {
+            color: var(--color-text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .article-card h3 a:hover {
+            color: var(--color-accent);
+        }
+
+        .article-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .article-card .article-link {
+            font-weight: 500;
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            align-self: flex-start;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .article-card .article-link:hover {
+            opacity: 0.8;
+            border-bottom-color: var(--color-accent);
+        }
+
+        .article-card .article-link::after {
+            content: '→';
+            transition: transform 0.25s ease;
+            font-size: 1.1rem;
+        }
+
+        .article-card .article-link:hover::after {
+            transform: translateX(6px);
+        }
+
+        /* --- CTA Band (matching services page) --- */
+        .insights-cta-band {
+            padding: 3.5rem 0;
+            background: var(--color-surface);
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insights-cta-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(184, 150, 58, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .insights-cta-band .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .insights-cta-band h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .insights-cta-band p {
+            color: var(--color-text-secondary);
+            margin-bottom: 1.6rem;
+            font-size: 1.05rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .article-card {
+                padding: 1.5rem;
+            }
+            .insights-grid-section {
+                padding: 2rem 0 3rem;
+            }
+            .insights-cta-band h2 {
+                font-size: 1.4rem;
+            }
+            .insights-cta-band p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-card h3 {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="RION Home">RION<span>.</span></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="kyip.html">KYIP</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="book-a-call.html" class="btn btn-outline btn-sm">Book a Call</a>
+                <a href="invest.html" class="btn btn-primary btn-sm">Start Investing</a>
+            </div>
+            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    PAGE HERO — unified (same as services, about, etc.)
+    ============================================================ -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label">Insights</span>
+            <h1>Read, learn, <span class="highlight">invest better</span></h1>
+            <span class="accent-underline"></span>
+            <p class="page-sub">
+                Articles, guides, and perspectives to help you make informed investment decisions.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ARTICLES GRID
+    ============================================================ -->
+    <section class="insights-grid-section">
+        <div class="container">
+            <div class="articles-grid">
+
+                <!-- 1. SIP vs Lumpsum -->
+                <div class="article-card">
+                    <span class="insight-tag">Mutual Funds</span>
+                    <h3><a href="insights-sip-vs-lumpsum.html">SIP vs Lumpsum: Which works for you?</a></h3>
+                    <p>Understanding the trade‑offs between disciplined SIPs and one‑time lumpsum investments.</p>
+                    <a href="insights-sip-vs-lumpsum.html" class="article-link">Read full article</a>
+                </div>
+
+                <!-- 2. ELSS vs PPF -->
+                <div class="article-card">
+                    <span class="insight-tag">Tax Planning</span>
+                    <h3><a href="insights-elss-vs-ppf.html">ELSS vs PPF: Where should you park your 80C?</a></h3>
+                    <p>Comparing lock‑in periods, returns, and tax efficiency of ELSS funds vs PPF.</p>
+                    <a href="insights-elss-vs-ppf.html" class="article-link">Read full article</a>
+                </div>
+
+                <!-- 3. Retire at 50 -->
+                <div class="article-card">
+                    <span class="insight-tag">Goal Planning</span>
+                    <h3><a href="insights-retirement-at-50.html">How much do you need to retire at 50?</a></h3>
+                    <p>A framework to calculate your retirement corpus and build a step‑by‑step plan.</p>
+                    <a href="insights-retirement-at-50.html" class="article-link">Read full article</a>
+                </div>
+
+                <!-- 4. Market Volatility -->
+                <div class="article-card">
+                    <span class="insight-tag">Market Notes</span>
+                    <h3><a href="insights-market-volatility.html">Market volatility: What should investors do now?</a></h3>
+                    <p>When markets drop, fear takes over. Here's a rational framework for staying the course.</p>
+                    <a href="insights-market-volatility.html" class="article-link">Read full article</a>
+                </div>
+
+                <!-- 5. Expense Ratios -->
+                <div class="article-card">
+                    <span class="insight-tag">Mutual Funds</span>
+                    <h3><a href="insights-expense-ratios.html">Expense ratios explained: What you're really paying</a></h3>
+                    <p>How expense ratios affect your long‑term returns, and why a seemingly small difference can cost you lakhs.</p>
+                    <a href="insights-expense-ratios.html" class="article-link">Read full article</a>
+                </div>
+
+                <!-- 6. Child Education -->
+                <div class="article-card">
+                    <span class="insight-tag">Goal Planning</span>
+                    <h3><a href="insights-child-education.html">Child education planning: How to start early</a></h3>
+                    <p>Education costs are rising fast. Here's how to build a dedicated portfolio that keeps pace with inflation.</p>
+                    <a href="insights-child-education.html" class="article-link">Read full article</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA BAND
+    ============================================================ -->
+    <section class="insights-cta-band">
+        <div class="container">
+            <h2>Want a plan built around these insights?</h2>
+            <p>Book a call and let's turn knowledge into action.</p>
+            <a href="book-a-call.html" class="btn btn-primary btn-lg">Book a Call</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER (final polished)
+    ============================================================ -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">RION<span>.</span></a>
+                    <p class="footer-tagline">Goal‑first advisory for your financial future.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/rion.co.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="https://www.linkedin.com/company/rionmfd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                    </div>
+                    <div class="footer-partner">
+                        <span class="partner-label">Digital Partner</span>
+                        <img src="creso-logo.png" alt="Creso" class="partner-logo" />
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul><li><a href="about.html">About</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="book-a-call.html">Book a Call</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul><li><a href="services-mutual-fund-advisory.html">Mutual Fund Advisory</a></li><li><a href="services-tax-planning.html">Tax Planning</a></li><li><a href="services-retirement-planning.html">Retirement Planning</a></li><li><a href="services-sip-planning.html">SIP Planning</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-use.html">Terms of Use</a></li><li><a href="faq.html">FAQ</a></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-contact">
+                    <a href="mailto:rionmfd@gmail.com">rionmfd@gmail.com</a>
+                    <span class="footer-divider">|</span>
+                    <a href="tel:+919146951511">+91 9146951511</a>
+                </div>
+                <div class="footer-compliance">ARN-364240 · AMFI Registered Mutual Fund Distributor</div>
+                <div class="footer-risk">Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</div>
+                <div class="footer-copy">&copy; 2026 RION. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    MOBILE NAV TOGGLE
+    ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.querySelector('.mobile-toggle');
+            const nav = document.querySelector('.main-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+                    this.setAttribute('aria-expanded', expanded);
+                    nav.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

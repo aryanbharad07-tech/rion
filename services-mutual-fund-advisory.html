@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mutual Fund Advisory — RION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* --- Service detail styles --- */
+        .service-detail-hero {
+            padding: 3rem 0 1.5rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            text-align: center;
+        }
+        .service-detail-hero h1 { margin-bottom: 0.5rem; }
+        .service-detail-hero .sub {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .service-detail-body {
+            padding: 3rem 0 4rem;
+            background: var(--color-bg-alt);
+        }
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* --- Left column: glass card --- */
+        .service-detail-content {
+            background: rgba(30, 30, 30, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .service-detail-content h2 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .service-detail-content h2:first-of-type { margin-top: 0; }
+        .service-detail-content p {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .service-detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 1rem;
+        }
+        .service-detail-content ul li {
+            color: var(--color-text-secondary);
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        .service-detail-content ul li::before {
+            content: "◆";
+            color: var(--color-accent);
+            font-size: 0.6rem;
+            margin-top: 0.3rem;
+            opacity: 0.6;
+        }
+        .service-note {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            text-align: center;
+        }
+        .service-note a {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+        .service-note a:hover { text-decoration: underline; }
+
+        /* --- Right column: sidebar + CTAs --- */
+        .service-detail-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .sidebar-card {
+            background: rgba(30, 30, 30, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .sidebar-card .sidebar-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: rgba(184, 150, 58, 0.12);
+            border: 1px solid rgba(184, 150, 58, 0.15);
+            margin-bottom: 0.8rem;
+        }
+        .sidebar-card .sidebar-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--color-accent);
+            stroke-width: 1.8;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .sidebar-card h3 {
+            font-family: var(--font-serif);
+            margin-bottom: 0.5rem;
+        }
+        .sidebar-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .sidebar-card hr {
+            border-color: var(--color-border);
+            margin: 1.2rem 0;
+            opacity: 0.3;
+        }
+        .sidebar-card .badge {
+            display: inline-block;
+            background: var(--color-accent-dim);
+            color: var(--color-accent);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid rgba(184, 150, 58, 0.15);
+            letter-spacing: 0.05em;
+        }
+
+        /* --- CTA buttons below sidebar --- */
+        .sidebar-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .sidebar-cta .btn {
+            width: 100%;
+            justify-content: center;
+        }
+        .sidebar-cta .btn-outline {
+            border-color: var(--color-border-light);
+        }
+        .sidebar-cta .btn-outline:hover {
+            border-color: var(--color-accent);
+        }
+
+        /* --- Back link --- */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+        .back-link::before {
+            content: "←";
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .service-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .service-detail-content {
+                padding: 1.5rem;
+            }
+            .service-detail-sidebar {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="RION Home">RION<span>.</span></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="kyip.html">KYIP</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="book-a-call.html" class="btn btn-outline btn-sm">Book a Call</a>
+                <a href="invest.html" class="btn btn-primary btn-sm">Start Investing</a>
+            </div>
+            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="service-detail-hero">
+        <div class="container">
+            <h1>Mutual Fund <span class="highlight">Advisory</span></h1>
+            <p class="sub">Goal‑aligned fund recommendations across categories — from large‑cap to hybrid.</p>
+        </div>
+    </section>
+
+    <section class="service-detail-body">
+        <div class="container">
+            <a href="services.html" class="back-link">Back to Services</a>
+            <div class="service-detail-grid">
+
+                <!-- Left column -->
+                <div class="service-detail-content">
+                    <h2>What it is</h2>
+                    <p>Mutual fund advisory is more than just picking a few funds. We start with your life goals, risk tolerance, and investment horizon. Then we build a diversified portfolio of mutual funds that aligns with your unique situation — not a one‑size‑fits‑all template.</p>
+
+                    <h2>Who it's for</h2>
+                    <p>Whether you're a first‑time investor looking to start your SIP journey, or someone with existing investments who needs a fresh perspective, our advisory is designed for you. We work with salaried professionals, business owners, and retirees alike.</p>
+
+                    <h2>What's included</h2>
+                    <ul>
+                        <li>In‑depth goal discovery session</li>
+                        <li>Personalized fund recommendation report</li>
+                        <li>Risk profiling and asset allocation strategy</li>
+                        <li>Regular portfolio reviews and rebalancing suggestions</li>
+                        <li>Ongoing support via WhatsApp / email</li>
+                    </ul>
+                    <p class="service-note">Not sure if this is right for you? <a href="kyip.html">Take the 2‑minute KYIP quiz first →</a></p>
+                </div>
+
+                <!-- Right column: sidebar + CTAs -->
+                <div class="service-detail-sidebar">
+                    <div class="sidebar-card">
+                        <div class="sidebar-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                            </svg>
+                        </div>
+                        <h3>Why choose RION?</h3>
+                        <p>We don't chase past performance. We build portfolios based on your future goals — not yesterday's winners.</p>
+                        <hr />
+                        <span class="badge">ARN-364240 · AMFI Registered</span>
+                    </div>
+
+                    <div class="sidebar-cta">
+                        <a href="kyip.html" class="btn btn-primary">Take the KYIP Quiz</a>
+                        <a href="book-a-call.html" class="btn btn-outline">Book a Call</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">RION<span>.</span></a>
+                    <p class="footer-tagline">Goal‑first advisory for your financial future.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/rion.co.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="https://www.linkedin.com/company/rionmfd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                    </div>
+                    <div class="footer-partner">
+                        <span class="partner-label">Digital Partner</span>
+                        <img src="creso-logo.png" alt="Creso" class="partner-logo" />
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="book-a-call.html">Book a Call</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services-mutual-fund-advisory.html">Mutual Fund Advisory</a></li>
+                        <li><a href="services-tax-planning.html">Tax Planning</a></li>
+                        <li><a href="services-retirement-planning.html">Retirement Planning</a></li>
+                        <li><a href="services-sip-planning.html">SIP Planning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-contact">
+                    <a href="mailto:rionmfd@gmail.com">rionmfd@gmail.com</a>
+                    <span class="footer-divider">|</span>
+                    <a href="tel:+919146951511">+91 9146951511</a>
+                </div>
+                <div class="footer-compliance">ARN-364240 · AMFI Registered Mutual Fund Distributor</div>
+                <div class="footer-risk">Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</div>
+                <div class="footer-copy">&copy; 2026 RION. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.querySelector('.mobile-toggle');
+            const nav = document.querySelector('.main-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+                    this.setAttribute('aria-expanded', expanded);
+                    nav.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

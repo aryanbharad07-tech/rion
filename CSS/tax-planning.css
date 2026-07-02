@@ -1,0 +1,122 @@
+.tax-hero {
+    padding: 3rem 0 1rem;
+    background: var(--color-ivory);
+    text-align: center;
+}
+
+.tax-hero h1 {
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: var(--color-gold);
+}
+
+.tax-sub {
+    color: var(--color-warm-grey);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tax-form-section {
+    padding: 2rem 0 4rem;
+    background: #fff;
+}
+
+.tax-form-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.tax-form-content h2 {
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+}
+
+.tax-benefits {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.tax-benefits li {
+    padding: 0.4rem 0;
+    font-size: 1rem;
+}
+
+.tax-trust {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--color-warm-grey);
+    margin-bottom: 1rem;
+}
+
+.tax-disclaimer {
+    background: rgba(176,141,87,0.08);
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: var(--color-charcoal);
+}
+
+.tax-form-box {
+    background: var(--color-ivory);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.tax-form-box h3 {
+    font-family: var(--font-serif);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.tax-form-box .form-group {
+    margin-bottom: 1rem;
+}
+
+.tax-form-box label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.tax-form-box input,
+.tax-form-box select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-sand);
+    border-radius: 10px;
+    background: #fff;
+    font-size: 1rem;
+}
+
+.tax-form-box input:focus,
+.tax-form-box select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.tax-form-box button {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.form-footnote {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-warm-grey);
+    margin-top: 0.8rem;
+}
+
+@media (min-width: 768px) {
+    .tax-form-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}

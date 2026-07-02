@@ -1,0 +1,134 @@
+.about-hero {
+    padding: 4rem 0 2rem;
+    background: var(--color-ivory);
+}
+
+.about-hero-content {
+    max-width: 700px;
+}
+
+.about-hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: var(--color-gold);
+}
+
+.about-lead {
+    font-size: 1.1rem;
+    color: var(--color-warm-grey);
+    line-height: 1.7;
+}
+
+.about-founder {
+    padding: 3rem 0;
+    background: #fff;
+}
+
+.about-founder-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.founder-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.photo-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--color-sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--color-warm-grey);
+}
+
+.founder-bio h2 {
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+}
+
+.founder-bio p {
+    color: var(--color-warm-grey);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.credentials span {
+    color: var(--color-navy);
+}
+
+@media (min-width: 768px) {
+    .about-founder-inner {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.about-process {
+    padding: 4rem 0;
+    background: var(--color-ivory);
+    text-align: center;
+}
+
+.about-process h2 {
+    margin-bottom: 2rem;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+}
+
+.process-item {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.process-item span {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.process-item h3 {
+    font-family: var(--font-serif);
+    margin-bottom: 0.3rem;
+}
+
+.process-item p {
+    color: var(--color-warm-grey);
+}
+
+@media (min-width: 768px) {
+    .process-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.about-cta {
+    margin-top: 1rem;
+}
