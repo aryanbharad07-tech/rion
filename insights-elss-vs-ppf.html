@@ -9,37 +9,141 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <style>
-        .article-hero { padding: 4rem 0 2.5rem; background: var(--color-bg); border-bottom: 1px solid var(--color-border); text-align: center; position: relative; overflow: hidden; }
-        .article-hero .container { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+        .article-hero {
+            padding: 5rem 0 3rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 35vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-image: url('nyse-building.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .article-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: rgba(10, 10, 10, 0.35);
+            pointer-events: none;
+        }
+        .article-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
         .article-hero .section-label { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-accent); font-weight: 600; margin-bottom: 0.5rem; opacity: 0.8; }
-        .article-hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 0.5rem; }
+        .article-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 0.5rem; }
         .article-hero .accent-underline { display: inline-block; width: 60px; height: 3px; background: var(--color-accent); margin: 0.5rem 0 1rem; border-radius: 4px; opacity: 0.6; }
         .article-hero .article-meta { color: var(--color-text-secondary); font-size: 0.9rem; letter-spacing: 0.03em; }
-        .article-body { padding: 3rem 0 4rem; background: var(--color-bg-alt); position: relative; overflow: hidden; }
-        .article-body::before { content: ''; position: absolute; inset: 0; z-index: 0; background-image: url('nyse-building.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.18; pointer-events: none; }
-        .article-body .container { position: relative; z-index: 1; }
-        .article-card { background: rgba(22, 22, 22, 0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; padding: 2.5rem 2.8rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); max-width: 860px; margin: 0 auto; }
-        .article-card .insight-tag { display: inline-block; font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); background: var(--color-accent-dim); padding: 0.15rem 0.7rem; border-radius: 40px; margin-bottom: 0.8rem; border: 1px solid rgba(184, 150, 58, 0.1); }
-        .article-card h2 { font-family: var(--font-serif); font-size: 1.6rem; margin-top: 2rem; margin-bottom: 0.5rem; color: var(--color-text-primary); }
-        .article-card h2:first-of-type { margin-top: 0.5rem; }
-        .article-card p { color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1.2rem; font-weight: 300; }
-        .article-card ul { margin: 1rem 0 1.5rem 1.5rem; color: var(--color-text-secondary); line-height: 1.8; }
-        .article-card ul li { margin-bottom: 0.4rem; }
-        .article-card strong { color: var(--color-text-primary); font-weight: 500; }
-        .cta-box { background: rgba(30, 30, 30, 0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 2rem; text-align: center; margin-top: 2.5rem; transition: border-color 0.3s ease; }
+
+        .article-body {
+            padding: 3rem 0 4rem;
+            background: var(--color-bg-alt);
+        }
+        .article-body .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .article-body .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+            transition: color 0.3s;
+        }
+        .article-body .back-link:hover { color: var(--color-accent); }
+        .article-body .back-link::before { content: "←"; }
+
+        .article-body .insight-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            background: var(--color-accent-dim);
+            padding: 0.15rem 0.7rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(184, 150, 58, 0.1);
+        }
+        .article-body h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-primary);
+        }
+        .article-body h2:first-of-type { margin-top: 0.5rem; }
+        .article-body p {
+            color: var(--color-text-secondary);
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+            font-size: 1.05rem;
+        }
+        .article-body ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--color-text-secondary);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        .article-body ul li { margin-bottom: 0.4rem; }
+        .article-body strong { color: var(--color-text-primary); font-weight: 500; }
+
+        .cta-box {
+            background: rgba(30, 30, 30, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            text-align: center;
+            margin-top: 2.5rem;
+            transition: border-color 0.3s ease;
+        }
         .cta-box:hover { border-color: rgba(184, 150, 58, 0.2); }
         .cta-box p { color: var(--color-text-primary); font-weight: 500; font-size: 1.1rem; margin-bottom: 1rem; }
         .cta-box .btn { margin: 0.4rem; }
         .cta-box .btn-outline { border-color: var(--color-border-light); }
         .cta-box .btn-outline:hover { border-color: var(--color-accent); }
-        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--color-text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; transition: color 0.3s; }
-        .back-link:hover { color: var(--color-accent); }
-        .back-link::before { content: "←"; }
-        @media (max-width: 768px) { .article-hero { padding: 3rem 0 2rem; } .article-hero h1 { font-size: 2rem; } .article-card { padding: 1.8rem 1.5rem; } .article-card h2 { font-size: 1.4rem; } .cta-box .btn { width: 100%; margin: 0.4rem 0; } .article-body::before { opacity: 0.12; } }
-        @media (max-width: 480px) { .article-hero h1 { font-size: 1.6rem; } .article-card { padding: 1.2rem; } }
+
+        @media (max-width: 768px) {
+            .article-hero { padding: 3rem 0 2rem; min-height: 28vh; }
+            .article-hero h1 { font-size: 2rem; }
+            .article-body .container { padding: 0 20px; }
+            .article-body h2 { font-size: 1.4rem; }
+            .article-body p, .article-body ul { font-size: 0.98rem; }
+            .cta-box .btn { width: 100%; margin: 0.4rem 0; }
+        }
+        @media (max-width: 480px) {
+            .article-hero h1 { font-size: 1.6rem; }
+            .cta-box { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
+
     <header class="site-header" role="banner">
         <div class="container header-inner">
             <a href="index.html" class="logo" aria-label="RION Home">RION<span>.</span></a>
@@ -75,30 +179,35 @@
     <section class="article-body">
         <div class="container">
             <a href="insights.html" class="back-link">Back to Insights</a>
-            <div class="article-card">
-                <span class="insight-tag">Tax Planning</span>
-                <p>When it comes to Section 80C deductions, two popular options often come to mind: ELSS (Equity Linked Savings Scheme) and PPF (Public Provident Fund). Both offer tax benefits, but they are fundamentally different in how they work, their returns, and their lock‑in periods. Let's break down which one might be right for you.</p>
-                <h2>What is ELSS?</h2>
-                <p>ELSS is a type of mutual fund that invests primarily in equities. It comes with a mandatory lock‑in period of 3 years — the shortest among all 80C options. Returns are market‑linked and historically have ranged between 12‑15% per annum over the long term.</p>
-                <h2>What is PPF?</h2>
-                <p>PPF is a government‑backed, fixed‑income savings scheme with a 15‑year lock‑in period. It offers a guaranteed, tax‑free interest rate (currently around 7‑8%), making it a safe and predictable option for conservative investors.</p>
-                <h2>Key differences at a glance</h2>
-                <ul>
-                    <li><strong>Lock‑in period:</strong> ELSS – 3 years; PPF – 15 years.</li>
-                    <li><strong>Returns:</strong> ELSS – market‑linked (10‑15% p.a.); PPF – fixed (~7‑8% p.a.).</li>
-                    <li><strong>Risk:</strong> ELSS – high; PPF – low (government guaranteed).</li>
-                    <li><strong>Tax on returns:</strong> ELSS – LTCG tax above ₹1 lakh; PPF – completely tax‑free.</li>
-                    <li><strong>Withdrawal:</strong> ELSS – partial withdrawal after 3 years; PPF – partial withdrawal after 6 years.</li>
-                </ul>
-                <h2>Which one should you choose?</h2>
-                <p><strong>Choose ELSS if:</strong> You have a higher risk tolerance, you're investing for the long term, and you want to maximise your returns with the shortest lock‑in period.</p>
-                <p><strong>Choose PPF if:</strong> You prefer safety and guaranteed returns, you're saving for retirement (15+ years), and you want a completely tax‑free income stream.</p>
-                <p>Many investors use a combination of both — ELSS for growth and PPF for stability. The right mix depends on your age, income, and financial goals.</p>
-                <div class="cta-box">
-                    <p>Want a personalised tax‑saving plan?</p>
-                    <a href="book-a-call.html" class="btn btn-primary">Book a Call</a>
-                    <a href="kyip.html" class="btn btn-outline">Take the KYIP Quiz</a>
-                </div>
+
+            <span class="insight-tag">Tax Planning</span>
+
+            <p>When it comes to Section 80C deductions, two popular options often come to mind: ELSS (Equity Linked Savings Scheme) and PPF (Public Provident Fund). Both offer tax benefits, but they are fundamentally different in how they work, their returns, and their lock‑in periods. Let's break down which one might be right for you.</p>
+
+            <h2>What is ELSS?</h2>
+            <p>ELSS is a type of mutual fund that invests primarily in equities. It comes with a mandatory lock‑in period of 3 years — the shortest among all 80C options. Returns are market‑linked and historically have ranged between 12‑15% per annum over the long term.</p>
+
+            <h2>What is PPF?</h2>
+            <p>PPF is a government‑backed, fixed‑income savings scheme with a 15‑year lock‑in period. It offers a guaranteed, tax‑free interest rate (currently around 7‑8%), making it a safe and predictable option for conservative investors.</p>
+
+            <h2>Key differences at a glance</h2>
+            <ul>
+                <li><strong>Lock‑in period:</strong> ELSS – 3 years; PPF – 15 years.</li>
+                <li><strong>Returns:</strong> ELSS – market‑linked (10‑15% p.a.); PPF – fixed (~7‑8% p.a.).</li>
+                <li><strong>Risk:</strong> ELSS – high; PPF – low (government guaranteed).</li>
+                <li><strong>Tax on returns:</strong> ELSS – LTCG tax above ₹1 lakh; PPF – completely tax‑free.</li>
+                <li><strong>Withdrawal:</strong> ELSS – partial withdrawal after 3 years; PPF – partial withdrawal after 6 years.</li>
+            </ul>
+
+            <h2>Which one should you choose?</h2>
+            <p><strong>Choose ELSS if:</strong> You have a higher risk tolerance, you're investing for the long term, and you want to maximise your returns with the shortest lock‑in period.</p>
+            <p><strong>Choose PPF if:</strong> You prefer safety and guaranteed returns, you're saving for retirement (15+ years), and you want a completely tax‑free income stream.</p>
+            <p>Many investors use a combination of both — ELSS for growth and PPF for stability. The right mix depends on your age, income, and financial goals.</p>
+
+            <div class="cta-box">
+                <p>Want a personalised tax‑saving plan?</p>
+                <a href="book-a-call.html" class="btn btn-primary">Book a Call</a>
+                <a href="kyip.html" class="btn btn-outline">Take the KYIP Quiz</a>
             </div>
         </div>
     </section>
@@ -144,6 +253,7 @@
             </div>
         </div>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggle = document.querySelector('.mobile-toggle');

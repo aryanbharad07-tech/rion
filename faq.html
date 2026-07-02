@@ -8,27 +8,227 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .legal-page {
+            padding: 3rem 0 4rem;
+            background: var(--color-bg-alt);
+        }
+        .legal-page .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .legal-page .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+        .legal-page .back-link:hover { color: var(--color-accent); }
+        .legal-page .back-link::before { content: "←"; }
+
+        .faq-content {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2.5rem 3rem;
+        }
+
+        .faq-content h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            margin-bottom: 0.3rem;
+            color: var(--color-text-primary);
+        }
+
+        .faq-content .last-updated {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--color-border);
+            padding: 1.5rem 0;
+        }
+        .faq-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: var(--color-text-primary);
+        }
+
+        .faq-item p {
+            color: var(--color-text-secondary);
+            line-height: 1.9;
+            font-weight: 300;
+            font-size: 1.05rem;
+            margin-bottom: 0;
+        }
+
+        .faq-item a {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+        .faq-item a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .faq-content { padding: 1.5rem; }
+            .faq-content h1 { font-size: 1.8rem; }
+            .faq-item h3 { font-size: 1.2rem; }
+            .faq-item p { font-size: 0.98rem; }
+        }
+        @media (max-width: 480px) {
+            .faq-content { padding: 1rem; }
+            .faq-content h1 { font-size: 1.5rem; }
+            .faq-item h3 { font-size: 1.1rem; }
+            .faq-item p { font-size: 0.92rem; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Same header -->
-    <header class="site-header" role="banner">...</header>
-    <main>
-        <section class="legal-page">
+
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="RION Home">RION<span>.</span></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="kyip.html">KYIP</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="book-a-call.html" class="btn btn-outline btn-sm">Book a Call</a>
+                <a href="invest.html" class="btn btn-primary btn-sm">Start Investing</a>
+            </div>
+            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label">Legal</span>
             <h1>Frequently Asked Questions</h1>
-            <h2>Is my money safe with RION?</h2>
-            <p>We are a distributor, not a fund manager. Your investments are held directly with the AMC/Registrar. RION does not hold or manage your money.</p>
-            <h2>What does RION charge?</h2>
-            <p>Our advisory is commission‑based, paid by the AMC. We do not charge any direct client fees. (If you have a different model, update accordingly.)</p>
-            <h2>What is Creso and why am I redirected there?</h2>
-            <p>Creso is our technology partner that handles the secure onboarding, KYC, and transaction execution. Once you're redirected, you'll complete your investment setup with them under their terms.</p>
-            <h2>Can I withdraw anytime?</h2>
-            <p>Yes, mutual fund investments are liquid. You can redeem your units at any time subject to applicable exit load and tax implications.</p>
-            <h2>Is this a SEBI Registered Investment Adviser service?</h2>
-            <p>RION is an AMFI‑registered Mutual Fund Distributor (ARN-364240). We do not hold an Investment Adviser license. We guide and recommend, but all investment decisions are made by you.</p>
-        </section>
-    </main>
-    <!-- Same footer -->
-    <footer class="site-footer" role="contentinfo">...</footer>
-    <script>/* nav toggle */</script>
+            <span class="accent-underline"></span>
+            <p class="page-sub">Answers to the most common questions about RION and our services.</p>
+        </div>
+    </section>
+
+    <section class="legal-page">
+        <div class="container">
+            <a href="index.html" class="back-link">Back to Home</a>
+
+            <div class="faq-content">
+                <h1>Frequently Asked Questions</h1>
+                <p class="last-updated">Last updated: 2 July 2026</p>
+
+                <div class="faq-item">
+                    <h3>Is my money safe with RION?</h3>
+                    <p>We are a distributor, not a fund manager. Your investments are held directly with the AMC/Registrar. RION does not hold or manage your money. You have direct access to your investments at all times.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What does RION charge?</h3>
+                    <p>Our advisory is commission‑based, paid by the AMC. We do not charge any direct client fees. This means our advice is aligned with your long‑term success, not short‑term sales. You pay nothing out of pocket for our advisory services.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is Creso and why am I redirected there?</h3>
+                    <p>Creso is our technology partner that handles the secure onboarding, KYC, and transaction execution. Once you're redirected, you'll complete your investment setup with them under their terms. They are a SEBI‑registered intermediary.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I withdraw anytime?</h3>
+                    <p>Yes, mutual fund investments are liquid. You can redeem your units at any time subject to applicable exit load and tax implications. There is no lock‑in period for most mutual funds (except ELSS).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is this a SEBI Registered Investment Adviser service?</h3>
+                    <p>RION is an AMFI‑registered Mutual Fund Distributor (ARN-364240). We do not hold an Investment Adviser license. We guide and recommend, but all investment decisions are made by you. Our role is to educate, simplify, and help you make informed choices.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I get started?</h3>
+                    <p>Start by taking our <a href="kyip.html">2‑minute KYIP quiz</a> to understand your risk profile and investment goals. Then <a href="book-a-call.html">book a free consultation</a> to discuss your personalised plan. You can also <a href="invest.html">start investing directly</a> via our partner Creso.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What if I have more questions?</h3>
+                    <p>Reach out to us anytime via <a href="mailto:rionmfd@gmail.com">email</a>, <a href="tel:+919146951511">phone</a>, or <a href="https://wa.me/919146951511" target="_blank" rel="noopener noreferrer">WhatsApp</a>. We're here to help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">RION<span>.</span></a>
+                    <p class="footer-tagline">Goal‑first advisory for your financial future.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/rion.co.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="https://www.linkedin.com/company/rionmfd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                    </div>
+                    <div class="footer-partner">
+                        <span class="partner-label">Digital Partner</span>
+                        <img src="creso-logo.png" alt="Creso" class="partner-logo" />
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul><li><a href="about.html">About</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="book-a-call.html">Book a Call</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul><li><a href="services-mutual-fund-advisory.html">Mutual Fund Advisory</a></li><li><a href="services-tax-planning.html">Tax Planning</a></li><li><a href="services-retirement-planning.html">Retirement Planning</a></li><li><a href="services-sip-planning.html">SIP Planning</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-use.html">Terms of Use</a></li><li><a href="faq.html">FAQ</a></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-contact">
+                    <a href="mailto:rionmfd@gmail.com">rionmfd@gmail.com</a>
+                    <span class="footer-divider">|</span>
+                    <a href="tel:+919146951511">+91 9146951511</a>
+                </div>
+                <div class="footer-compliance">ARN-364240 · AMFI Registered Mutual Fund Distributor</div>
+                <div class="footer-risk">Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</div>
+                <div class="footer-copy">&copy; 2026 RION. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.querySelector('.mobile-toggle');
+            const nav = document.querySelector('.main-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+                    this.setAttribute('aria-expanded', expanded);
+                    nav.classList.toggle('open');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

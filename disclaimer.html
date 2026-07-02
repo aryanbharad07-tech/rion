@@ -8,13 +8,114 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .legal-page {
+            padding: 3rem 0 4rem;
+            background: var(--color-bg-alt);
+        }
+        .legal-page .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .legal-page .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+        .legal-page .back-link:hover { color: var(--color-accent); }
+        .legal-page .back-link::before { content: "←"; }
+
+        .legal-content {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2.5rem 3rem;
+        }
+
+        .legal-content h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            margin-bottom: 0.3rem;
+            color: var(--color-text-primary);
+        }
+
+        .legal-content .last-updated {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .legal-content h2 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-primary);
+        }
+        .legal-content h2:first-of-type { margin-top: 0; }
+
+        .legal-content p {
+            color: var(--color-text-secondary);
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            font-size: 1.08rem;
+        }
+
+        .legal-content ul {
+            margin: 0.5rem 0 1.5rem 1.5rem;
+            color: var(--color-text-secondary);
+            line-height: 1.9;
+            font-size: 1.08rem;
+        }
+        .legal-content ul li { margin-bottom: 0.3rem; }
+
+        .legal-content a {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+        .legal-content a:hover { text-decoration: underline; }
+
+        .legal-content .highlight-box {
+            background: var(--color-accent-dim);
+            border-left: 3px solid var(--color-accent);
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+        .legal-content .highlight-box p {
+            margin-bottom: 0;
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .legal-content { padding: 1.5rem; }
+            .legal-content h1 { font-size: 1.8rem; }
+            .legal-content h2 { font-size: 1.3rem; }
+            .legal-content p, .legal-content ul { font-size: 0.98rem; }
+        }
+        @media (max-width: 480px) {
+            .legal-content { padding: 1rem; }
+            .legal-content h1 { font-size: 1.5rem; }
+            .legal-content p, .legal-content ul { font-size: 0.92rem; }
+        }
+    </style>
 </head>
 <body>
+
     <header class="site-header" role="banner">
         <div class="container header-inner">
             <a href="index.html" class="logo" aria-label="RION Home">RION<span>.</span></a>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="kyip.html">KYIP</a></li>
                     <li><a href="services.html">Services</a></li>
@@ -32,107 +133,84 @@
         </div>
     </header>
 
-    <main>
-        <section class="legal-page">
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label">Legal</span>
             <h1>Disclaimer</h1>
-            <p><strong>ARN-364240</strong> | AMFI Registered Mutual Fund Distributor</p>
-            <p>Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p>
-            <p>Past performance is not indicative of future returns. RION is a distributor and does not provide SEBI‑registered investment advisory services. All investment decisions are made by the client based on their own assessment of risk and suitability.</p>
-            <p>The information provided on this website is for educational and informational purposes only and does not constitute financial advice.</p>
-            <p>By using this website, you agree to the terms and conditions outlined in our <a href="terms-of-use.html">Terms of Use</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
-        </section>
-    </main>
+            <span class="accent-underline"></span>
+            <p class="page-sub">Important legal information about our services, regulatory status, and risk disclosures.</p>
+        </div>
+    </section>
 
-  <!-- ============================================================
-FOOTER — Final Polished Version
-============================================================ -->
-<footer class="site-footer" role="contentinfo">
-    <div class="container">
-        <div class="footer-grid">
+    <section class="legal-page">
+        <div class="container">
+            <a href="index.html" class="back-link">Back to Home</a>
 
-            <!-- Brand Column -->
-            <div class="footer-brand">
-                <a href="index.html" class="logo footer-logo">RION<span>.</span></a>
-                <p class="footer-tagline">Goal‑first advisory for your financial future.</p>
+            <div class="legal-content">
+                <h1>Disclaimer</h1>
+                <p class="last-updated">Last updated: 2 July 2026</p>
 
-                <!-- Social Links -->
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/rion.co.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/rionmfd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="#" aria-label="WhatsApp">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                    </a>
+                <div class="highlight-box">
+                    <p><strong>ARN-364240</strong> · AMFI Registered Mutual Fund Distributor</p>
                 </div>
 
-                <!-- Digital Partner -->
-                <div class="footer-partner">
-                    <span class="partner-label">Digital Partner</span>
-                    <!-- 
-                        Save your Creso logo as 'creso-logo.png' in the same folder as style.css
-                        If your logo is already white/light, remove the filter from the CSS above.
-                    -->
-                    <img src="creso-logo.png" alt="Creso" class="partner-logo" />
+                <p>Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p>
+
+                <p>Past performance is not indicative of future returns. RION is a distributor and does not provide SEBI‑registered investment advisory services. All investment decisions are made by the client based on their own assessment of risk and suitability.</p>
+
+                <p>The information provided on this website is for educational and informational purposes only and does not constitute financial advice. The content is not intended to be a substitute for professional financial advice, legal advice, or tax advice.</p>
+
+                <p>RION (ARN-364240) is an AMFI‑registered Mutual Fund Distributor. We are not a SEBI‑registered Investment Adviser (RIA). Our role is to guide and recommend, not to manage your portfolio on a discretionary basis. All final investment choices are made by you.</p>
+
+                <p>By using this website, you agree to the terms and conditions outlined in our <a href="terms-of-use.html">Terms of Use</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+                <p>For any questions regarding this disclaimer, please contact us at <a href="mailto:rionmfd@gmail.com">rionmfd@gmail.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">RION<span>.</span></a>
+                    <p class="footer-tagline">Goal‑first advisory for your financial future.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/rion.co.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="https://www.linkedin.com/company/rionmfd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                    </div>
+                    <div class="footer-partner">
+                        <span class="partner-label">Digital Partner</span>
+                        <img src="creso-logo.png" alt="Creso" class="partner-logo" />
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul><li><a href="about.html">About</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact</a></li><li><a href="book-a-call.html">Book a Call</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul><li><a href="services-mutual-fund-advisory.html">Mutual Fund Advisory</a></li><li><a href="services-tax-planning.html">Tax Planning</a></li><li><a href="services-retirement-planning.html">Retirement Planning</a></li><li><a href="services-sip-planning.html">SIP Planning</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-use.html">Terms of Use</a></li><li><a href="faq.html">FAQ</a></li></ul>
                 </div>
             </div>
-
-            <!-- Quick Links -->
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="insights.html">Insights</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="book-a-call.html">Book a Call</a></li>
-                </ul>
-            </div>
-
-            <!-- Services -->
-            <div class="footer-col">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="services-mutual-fund-advisory.html">Mutual Fund Advisory</a></li>
-                    <li><a href="services-tax-planning.html">Tax Planning</a></li>
-                    <li><a href="services-retirement-planning.html">Retirement Planning</a></li>
-                    <li><a href="services-sip-planning.html">SIP Planning</a></li>
-                </ul>
-            </div>
-
-            <!-- Legal -->
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="disclaimer.html">Disclaimer</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-use.html">Terms of Use</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="footer-contact">
-                <a href="mailto:rionmfd@gmail.com">rionmfd@gmail.com</a>
-                <span class="footer-divider">|</span>
-                <a href="tel:+919146951511">+91 9146951511</a>
-            </div>
-            <div class="footer-compliance">
-                ARN-364240 · AMFI Registered Mutual Fund Distributor
-            </div>
-            <div class="footer-risk">
-                Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
-            </div>
-            <div class="footer-copy">
-                &copy; 2026 RION. All rights reserved.
+            <div class="footer-bottom">
+                <div class="footer-contact">
+                    <a href="mailto:rionmfd@gmail.com">rionmfd@gmail.com</a>
+                    <span class="footer-divider">|</span>
+                    <a href="tel:+919146951511">+91 9146951511</a>
+                </div>
+                <div class="footer-compliance">ARN-364240 · AMFI Registered Mutual Fund Distributor</div>
+                <div class="footer-risk">Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</div>
+                <div class="footer-copy">&copy; 2026 RION. All rights reserved.</div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggle = document.querySelector('.mobile-toggle');
