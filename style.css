@@ -1711,3 +1711,55 @@ h3 {
     color: var(--color-text-primary);
     opacity: 1;
 }
+/* ==============================================================
+   MOBILE MENU TOGGLE FIX
+   ============================================================== */
+
+@media (max-width: 767px) {
+    /* Make header relative for absolute positioning of nav */
+    .site-header {
+        position: relative;
+    }
+
+    /* Hide nav by default, show when open */
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        padding: 1.2rem 0;
+        z-index: 999;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .main-nav.open {
+        display: block;
+    }
+
+    /* Stack nav items vertically */
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-list a {
+        font-size: 1rem;
+        padding: 0.3rem 0;
+    }
+
+    /* Hide header actions on mobile (they are already hidden) */
+    .header-actions {
+        display: none !important;
+    }
+
+    /* Ensure hamburger is visible */
+    .mobile-toggle {
+        display: flex !important;
+    }
+}
