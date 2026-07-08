@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryan Bharad | Rion Wealth</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans for that modern elite Fintech UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- ATMOSPHERIC FINTECH AESTHETIC --- */
+        :root {
+            --bg-base: #050507;
+            --surface-glass: rgba(255, 255, 255, 0.02);
+            --surface-glass-hover: rgba(255, 255, 255, 0.05);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-highlight: rgba(255, 255, 255, 0.15);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            
+            --brand-glow-1: #0ea5e9; /* Deep Ocean Blue */
+            --brand-glow-2: #6366f1; /* Indigo */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- DYNAMIC AMBIENT LIGHTING --- */
+        .ambient-lights {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .light-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: drift 15s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 50vw; height: 50vw;
+            background: var(--brand-glow-1);
+            top: -10%; left: -10%;
+        }
+
+        .orb-2 {
+            width: 40vw; height: 40vw;
+            background: var(--brand-glow-2);
+            bottom: -10%; right: -10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.2); }
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- PROFILE SECTION --- */
+        .profile-img {
+            width: 105px;
+            height: 105px;
+            border-radius: 30px; /* Squircle shape instead of basic circle */
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px var(--border-highlight);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.4s ease, border-radius 0.4s ease;
+        }
+
+        .profile-img:hover {
+            transform: translateY(-5px);
+            border-radius: 20px; /* Slight shape morph on hover */
+        }
+
+        .name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bio-highlight {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Tiny pulsing dot next to ARN */
+        .bio-highlight::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--brand-glow-1);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--brand-glow-1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); }
+            70% { opacity: 1; box-shadow: 0 0 0 6px rgba(14, 165, 233, 0); }
+            100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* --- LINKS SECTION --- */
+        .links-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            perspective: 1000px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1.15rem 1.5rem;
+            background: var(--surface-glass);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Very subtle gradient overlay inside the card */
+        .link-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.02), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .link-card:hover {
+            background: var(--surface-glass-hover);
+            border-color: var(--border-highlight);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .link-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .link-card i {
+            position: absolute;
+            left: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover i {
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+
+        /* --- SOCIAL ICONS SECTION --- */
+        .social-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            background: var(--surface-glass);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .social-icon {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Atmospheric background lighting -->
+    <div class="ambient-lights">
+        <div class="light-orb orb-1"></div>
+        <div class="light-orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        
+        <!-- PROFILE SECTION -->
+        <img src="profileimage.png" alt="Aryan Bharad" class="profile-img">
+        
+        <h1 class="name">Aryan Bharad</h1>
+        <div class="bio-highlight">ARN - 364240</div>
+        
+        <p class="bio">
+            Goal‑first advisory for your financial future.
+        </p>
+
+
+        <!-- LINKS SECTION -->
+        <div class="links-container">
+            
+            <a href="https://www.rion.co.in" class="link-card" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Rion Wealth Website</span>
+            </a>
+
+            <a href="https://rion.co.in/kyip" class="link-card" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Take the KYIP Quiz</span>
+            </a>
+
+            <a href="https://wa.me/9146951511" class="link-card" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Chat on WhatsApp</span>
+            </a>
+            
+        </div>
+
+        <!-- BOTTOM SOCIAL ICONS -->
+        <div class="social-container">
+            <a href="https://www.linkedin.com/company/rionwealth" class="social-icon" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- 3D TILT SCRIPT (Refined for the new UI) -->
+    <script>
+        const cards = document.querySelectorAll('.link-card');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Extremely subtle tilt
+                const rotateX = ((y - centerY) / centerY) * -4;
+                const rotateY = ((x - centerX) / centerX) * 4;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+    </script>
+</body>
+</html>
